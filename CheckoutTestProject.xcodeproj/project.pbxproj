@@ -13,7 +13,7 @@
 		397AC22629144693000BD051 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC22529144693000BD051 /* NetworkClient.swift */; };
 		397AC228291446C9000BD051 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC227291446C9000BD051 /* HTTPMethods.swift */; };
 		397AC22A29144884000BD051 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC22929144884000BD051 /* NetworkRequest.swift */; };
-		397AC22C291449A4000BD051 /* PaymentURLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC22B291449A4000BD051 /* PaymentURLPayload.swift */; };
+		397AC22C291449A4000BD051 /* PaymentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC22B291449A4000BD051 /* PaymentResult.swift */; };
 		397AC22E291462DF000BD051 /* URLRequest+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397AC22D291462DF000BD051 /* URLRequest+Extensions.swift */; };
 		399C294E2912F5AB0031EC73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C294D2912F5AB0031EC73 /* AppDelegate.swift */; };
 		399C29502912F5AB0031EC73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C294F2912F5AB0031EC73 /* SceneDelegate.swift */; };
@@ -28,6 +28,11 @@
 		399C2987291302160031EC73 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C2986291302160031EC73 /* UIView+Extensions.swift */; };
 		399C2989291305F50031EC73 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C2988291305F50031EC73 /* UIStackView+Extensions.swift */; };
 		399C298B2913094B0031EC73 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C298A2913094B0031EC73 /* UITextField+Extensions.swift */; };
+		39A1BFC9291D24D500A54488 /* CardVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFC8291D24D500A54488 /* CardVerificationViewController.swift */; };
+		39A1BFCC291D259F00A54488 /* CardVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFCB291D259F00A54488 /* CardVerificationViewModel.swift */; };
+		39A1BFCF291D264D00A54488 /* CardVerificationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFCE291D264D00A54488 /* CardVerificationAssembly.swift */; };
+		39A1BFD2291D269B00A54488 /* CardInputRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD1291D269B00A54488 /* CardInputRouter.swift */; };
+		39A1BFD5291D3DB300A54488 /* CardVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */; };
 		39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AB29140497004C5B4C /* CardInputAssembly.swift */; };
 		39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AD291404BD004C5B4C /* CardInputViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +61,7 @@
 		397AC22529144693000BD051 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		397AC227291446C9000BD051 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		397AC22929144884000BD051 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		397AC22B291449A4000BD051 /* PaymentURLPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentURLPayload.swift; sourceTree = "<group>"; };
+		397AC22B291449A4000BD051 /* PaymentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResult.swift; sourceTree = "<group>"; };
 		397AC22D291462DF000BD051 /* URLRequest+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extensions.swift"; sourceTree = "<group>"; };
 		399C294A2912F5AB0031EC73 /* CheckoutTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckoutTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		399C294D2912F5AB0031EC73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +80,11 @@
 		399C2986291302160031EC73 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		399C2988291305F50031EC73 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		399C298A2913094B0031EC73 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		39A1BFC8291D24D500A54488 /* CardVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationViewController.swift; sourceTree = "<group>"; };
+		39A1BFCB291D259F00A54488 /* CardVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationViewModel.swift; sourceTree = "<group>"; };
+		39A1BFCE291D264D00A54488 /* CardVerificationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationAssembly.swift; sourceTree = "<group>"; };
+		39A1BFD1291D269B00A54488 /* CardInputRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputRouter.swift; sourceTree = "<group>"; };
+		39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationRouter.swift; sourceTree = "<group>"; };
 		39E075AB29140497004C5B4C /* CardInputAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputAssembly.swift; sourceTree = "<group>"; };
 		39E075AD291404BD004C5B4C /* CardInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				397AC21F2914443B000BD051 /* Card.swift */,
-				397AC22B291449A4000BD051 /* PaymentURLPayload.swift */,
+				397AC22B291449A4000BD051 /* PaymentResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -175,6 +185,7 @@
 		399C294C2912F5AB0031EC73 /* CheckoutTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				39A1BFC6291D231700A54488 /* CardVerificationModule */,
 				397AC221291445CE000BD051 /* Domain */,
 				399C2985291302010031EC73 /* Extensions */,
 				399C297E2912FB080031EC73 /* CardInputModule */,
@@ -217,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				39E075AA29140484004C5B4C /* Assembly */,
+				39A1BFD0291D268500A54488 /* Router */,
 				39E075A929140389004C5B4C /* Model */,
 				39E075A829140382004C5B4C /* View */,
 			);
@@ -230,6 +242,57 @@
 				397AC22D291462DF000BD051 /* URLRequest+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39A1BFC6291D231700A54488 /* CardVerificationModule */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFCD291D263800A54488 /* Assembly */,
+				39A1BFD3291D3DA400A54488 /* Router */,
+				39A1BFCA291D259200A54488 /* Model */,
+				39A1BFC7291D24B100A54488 /* View */,
+			);
+			path = CardVerificationModule;
+			sourceTree = "<group>";
+		};
+		39A1BFC7291D24B100A54488 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFC8291D24D500A54488 /* CardVerificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A1BFCA291D259200A54488 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFCB291D259F00A54488 /* CardVerificationViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39A1BFCD291D263800A54488 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFCE291D264D00A54488 /* CardVerificationAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		39A1BFD0291D268500A54488 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFD1291D269B00A54488 /* CardInputRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		39A1BFD3291D3DA400A54488 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		39E075A829140382004C5B4C /* View */ = {
@@ -390,21 +453,26 @@
 				399C2987291302160031EC73 /* UIView+Extensions.swift in Sources */,
 				397AC22A29144884000BD051 /* NetworkRequest.swift in Sources */,
 				39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */,
+				39A1BFCC291D259F00A54488 /* CardVerificationViewModel.swift in Sources */,
 				397AC22E291462DF000BD051 /* URLRequest+Extensions.swift in Sources */,
 				397AC224291445F8000BD051 /* Endpoints.swift in Sources */,
 				399C2989291305F50031EC73 /* UIStackView+Extensions.swift in Sources */,
 				399C29522912F5AB0031EC73 /* CardInputViewController.swift in Sources */,
 				397AC228291446C9000BD051 /* HTTPMethods.swift in Sources */,
-				397AC22C291449A4000BD051 /* PaymentURLPayload.swift in Sources */,
+				397AC22C291449A4000BD051 /* PaymentResult.swift in Sources */,
 				399C294E2912F5AB0031EC73 /* AppDelegate.swift in Sources */,
 				399C29822912FBBB0031EC73 /* Strings.swift in Sources */,
 				399C298B2913094B0031EC73 /* UITextField+Extensions.swift in Sources */,
+				39A1BFD2291D269B00A54488 /* CardInputRouter.swift in Sources */,
 				397AC2202914443B000BD051 /* Card.swift in Sources */,
 				399C29502912F5AB0031EC73 /* SceneDelegate.swift in Sources */,
 				399C29802912FB3A0031EC73 /* CardInputView.swift in Sources */,
 				397AC22629144693000BD051 /* NetworkClient.swift in Sources */,
 				397AC21D291443FF000BD051 /* PaymentService.swift in Sources */,
 				39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */,
+				39A1BFCF291D264D00A54488 /* CardVerificationAssembly.swift in Sources */,
+				39A1BFC9291D24D500A54488 /* CardVerificationViewController.swift in Sources */,
+				39A1BFD5291D3DB300A54488 /* CardVerificationRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

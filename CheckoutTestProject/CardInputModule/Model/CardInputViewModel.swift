@@ -9,16 +9,18 @@ import Combine
 
 final class CardInputViewModel {
     
-    @Published var cardNumber: String? = nil
-    @Published var expirationDate: String? = nil
-    @Published var cvv: String? = nil
+    @Published var cardNumber: String? = "4243754271700719"
+    @Published var expirationDate: String? = "06/2030"
+    @Published var cvv: String? = "100"
     
     private let service: PaymentService
+    private let router: CardInputRouter
     
     private var disposeBag = Set<AnyCancellable>() 
     
-    init(service: PaymentService) {
+    init(service: PaymentService, router: CardInputRouter) {
         self.service = service
+        self.router = router
     }
     
     func change(cardNumber: String) {
@@ -50,7 +52,18 @@ final class CardInputViewModel {
     }
     
     func buy() {
-        let card = Card(number: 4242424242424242, expirationMonth: 6, expirationYear: 2032, cvv: 100)
+        let expirationDate = self.expirationDate ?? ""
+        let dateComponents = expirationDate.split(separator: "/")
+        guard 
+            let cardNumber = Int(self.cardNumber ?? ""),
+            dateComponents.count == 2,
+        let month = Int(dateComponents[0]),
+        let year = Int(dateComponents[1]),
+            let cvv = Int(self.cvv ?? "") else {
+            return
+        }
+
+        let card = Card(number: cardNumber, expirationMonth: month, expirationYear: year, cvv: cvv)
         self.service.obtainPaymentURL(by: card)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -59,9 +72,28 @@ final class CardInputViewModel {
                 case .finished:
                     break
                 }
-            }, receiveValue: { payload in
-                print("!!! payload: \(payload)")              
+            }, receiveValue: { [weak self] payload in
+                guard let self = self else {
+                    return
+                }
+                let dependencies = CardVerificationDependencies(
+                    url: payload.url,
+                    successURL: payload.successURL,
+                    failureURL: payload.failureURL,
+                    output: self
+                )
+                self.router.showVerification(with: dependencies)
             })
             .store(in: &self.disposeBag)
+    }
+}
+
+extension CardInputViewModel: CardVerificationViewModelOutput {
+    func cardVerificationComplete() {
+        print("!!! cardVerificationComplete")
+    }
+    
+    func cardVerificationFailed() {
+        print("!!! cardVerificationFailed")
     }
 }

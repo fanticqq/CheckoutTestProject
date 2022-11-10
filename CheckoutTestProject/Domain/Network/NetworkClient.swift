@@ -42,6 +42,7 @@ final class NetworkClientImp: NetworkClient {
         urlRequest.httpBody = try? encoder.encode(request.parameters)
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.timeoutInterval = 10
+        urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         print("!!! urlRequest: \(urlRequest.cURL(pretty: true))")
         
         return URLSession.shared

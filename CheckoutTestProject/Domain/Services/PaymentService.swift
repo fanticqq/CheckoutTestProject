@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PaymentService {
-    func obtainPaymentURL(by card: Card) -> AnyPublisher<PaymentURLPayload, Error>
+    func obtainPaymentURL(by card: Card) -> AnyPublisher<PaymentResult, Error>
 }
 
 final class PaymentServiceImp: PaymentService {
@@ -19,21 +19,26 @@ final class PaymentServiceImp: PaymentService {
         self.client = client
     }
     
-    func obtainPaymentURL(by card: Card) -> AnyPublisher<PaymentURLPayload, Error> {
+    func obtainPaymentURL(by card: Card) -> AnyPublisher<PaymentResult, Error> {
         let parameters = PaymentParameters(
             number: card.number,
             expiryMonth: card.expirationMonth,
             expiryYear: card.expirationYear,
             cvv: card.cvv,
-            successUrl: "https://success.com",
-            failureUrl: "https://failure.com"
+            successUrl: Constants.successURL.absoluteString,
+            failureUrl: Constants.failureURL.absoluteString
         )
         let request = NetworkRequest<PaymentParameters>(
             endpoint: .pay,
             method: .post,
             parameters: parameters
         )
-        return self.client.obtainData(for: request)
+        return self.client
+            .obtainData(for: request)
+            .map { (payload: PaymentURLPayload) -> PaymentResult in
+                .init(url: payload.url, successURL: Constants.successURL, failureURL: Constants.failureURL) 
+            }
+            .eraseToAnyPublisher()
     }
 }
 
@@ -45,6 +50,10 @@ private extension PaymentServiceImp {
         let cvv: Int
         let successUrl: String
         let failureUrl: String
+    }
+    
+    struct PaymentURLPayload: Decodable {
+        let url: URL
     }
 }
 
@@ -67,4 +76,20 @@ extension PaymentServiceImp.PaymentParameters: Encodable {
         try container.encode(self.successUrl, forKey: .successUrl)
         try container.encode(self.failureUrl, forKey: .failureUrl)
     }
+}
+
+private enum Constants {
+    static let successURL: URL = {
+        guard let url = URL(string: "https://success.com") else {
+            fatalError("Success url build failed")
+        }
+        return url
+    }()
+
+    static let failureURL: URL = {
+        guard let url = URL(string: "https://failure.com") else {
+            fatalError("Failure url build failed")
+        }
+        return url
+    }()
 }

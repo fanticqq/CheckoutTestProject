@@ -10,8 +10,11 @@ import UIKit
 enum CardInputAssembly {
     static func makeModule() -> UIViewController {
         let client = NetworkClientImp()
+        let router = CardInputRouterImp()
         let service = PaymentServiceImp(client: client)
-        let viewModel = CardInputViewModel(service: service)
-        return CardInputViewController(viewModel: viewModel)
+        let viewModel = CardInputViewModel(service: service, router: router)
+        let viewController = CardInputViewController(viewModel: viewModel)
+        router.presenter = viewController
+        return viewController
     }
 }
