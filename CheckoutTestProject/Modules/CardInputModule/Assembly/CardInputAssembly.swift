@@ -12,7 +12,8 @@ enum CardInputAssembly {
         let client = NetworkClientImp()
         let router = CardInputRouterImp()
         let service = PaymentServiceImp(client: client)
-        let viewModel = CardInputViewModel(service: service, router: router)
+        let cardMapper = CardInputDataMapperImp()
+        let viewModel = CardInputViewModel(service: service, cardMapper: cardMapper, router: router)
         let viewController = CardInputViewController(viewModel: viewModel)
         router.presenter = viewController
         return viewController

@@ -9,20 +9,22 @@ import Combine
 
 final class CardInputViewModel {
     
-    @Published var cardNumber: String? = "4243754271700719"
-    @Published var expirationDate: String? = "06/2030"
-    @Published var cvv: String? = "100"
+    @Published var cardNumber: String?
+    @Published var expirationDate: String?
+    @Published var cvv: String?
     @Published var isProcessing: Bool = false
     
     let errors = PassthroughSubject<CardInputErrorMessage, Never>()
     
     private let service: PaymentService
+    private let cardMapper: CardInputDataMapper
     private let router: CardInputRouter
     
     private var disposeBag = Set<AnyCancellable>() 
     
-    init(service: PaymentService, router: CardInputRouter) {
+    init(service: PaymentService, cardMapper: CardInputDataMapper, router: CardInputRouter) {
         self.service = service
+        self.cardMapper = cardMapper
         self.router = router
     }
     
@@ -55,19 +57,33 @@ final class CardInputViewModel {
     }
     
     func buy() {
-        let expirationDate = self.expirationDate ?? ""
-        let dateComponents = expirationDate.split(separator: "/")
-        guard 
-            let cardNumber = Int(self.cardNumber ?? ""),
-            dateComponents.count == 2,
-        let month = Int(dateComponents[0]),
-        let year = Int(dateComponents[1]),
-            let cvv = Int(self.cvv ?? "") else {
-            return
+        let mappingResult = self.cardMapper.map(
+            cardNumber: self.cardNumber,
+            expirationDate: self.expirationDate,
+            cvv: self.cvv
+        )
+        switch mappingResult {
+        case .success(let card):
+            self.isProcessing = true
+            self.obtainPaymentURL(by: card)
+        case .failure(let error):
+            self.errors.send(.validationError(error.localizedDescription))
         }
+    }
+}
 
-        let card = Card(number: cardNumber, expirationMonth: month, expirationYear: year, cvv: cvv)
-        self.isProcessing = true
+extension CardInputViewModel: CardVerificationViewModelOutput {
+    func cardVerificationComplete() {
+        self.router.showPaymentResult(isPaymentSucceeded: true)
+    }
+    
+    func cardVerificationFailed() {
+        self.router.showPaymentResult(isPaymentSucceeded: false)
+    }
+}
+
+private extension CardInputViewModel {
+    func obtainPaymentURL(by card: Card) {
         self.service.obtainPaymentURL(by: card)
             .sink(receiveCompletion: { [weak self] completion in
                 self?.isProcessing = false
@@ -90,15 +106,5 @@ final class CardInputViewModel {
                 self.router.showVerification(with: dependencies)
             })
             .store(in: &self.disposeBag)
-    }
-}
-
-extension CardInputViewModel: CardVerificationViewModelOutput {
-    func cardVerificationComplete() {
-        self.router.showPaymentResult(isPaymentSucceeded: true)
-    }
-    
-    func cardVerificationFailed() {
-        self.router.showPaymentResult(isPaymentSucceeded: false)
     }
 }

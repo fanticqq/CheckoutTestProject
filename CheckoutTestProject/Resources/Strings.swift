@@ -18,4 +18,9 @@ enum Strings {
     static let ok = "OK"
     static let paymentSucceededText = "Payment completed :)"
     static let paymentFailedText = "Payment failed :("
+    static let cardMappingErrorDataIsMissing = "Not all fields are filled"
+    static let cardMappingErrorIncorrectCardNumber = "Card number is incorrect"
+    static let cardMappingErrorIncorrectCvv = "CVV is incorrect"
+    static let cardMappingErrorIncorrectExpirationDate = "Expiration date is incorrect"
+    static let cardMappingErrorIncorrectExpirationMonth = "Expiration month is incorrect"
 }
