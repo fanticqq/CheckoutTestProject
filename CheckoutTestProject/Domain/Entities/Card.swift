@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card {
+struct Card: Equatable {
     let number: Int
     let expirationMonth: Int
     let expirationYear: Int

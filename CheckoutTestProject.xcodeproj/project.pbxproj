@@ -20,7 +20,7 @@
 		399C29522912F5AB0031EC73 /* CardInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C29512912F5AB0031EC73 /* CardInputViewController.swift */; };
 		399C29572912F5B40031EC73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 399C29562912F5B40031EC73 /* Assets.xcassets */; };
 		399C295A2912F5B40031EC73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399C29582912F5B40031EC73 /* LaunchScreen.storyboard */; };
-		399C29652912F5B50031EC73 /* CheckoutTestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C29642912F5B50031EC73 /* CheckoutTestProjectTests.swift */; };
+		399C29652912F5B50031EC73 /* CardInputDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C29642912F5B50031EC73 /* CardInputDataMapperTests.swift */; };
 		399C296F2912F5B50031EC73 /* CheckoutTestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C296E2912F5B50031EC73 /* CheckoutTestProjectUITests.swift */; };
 		399C29712912F5B50031EC73 /* CheckoutTestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C29702912F5B50031EC73 /* CheckoutTestProjectUITestsLaunchTests.swift */; };
 		399C29802912FB3A0031EC73 /* CardInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399C297F2912FB3A0031EC73 /* CardInputView.swift */; };
@@ -39,6 +39,12 @@
 		39A1BFE2291D49C400A54488 /* PaymentResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */; };
 		39A1BFE5291D4CC900A54488 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE4291D4CC900A54488 /* TextField.swift */; };
 		39A1BFE7291D523200A54488 /* CardInputDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE6291D523200A54488 /* CardInputDataMapper.swift */; };
+		39A1BFE9291D811100A54488 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE8291D811100A54488 /* String+Extensions.swift */; };
+		39A1BFEB291D81D100A54488 /* CardInputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFEA291D81D100A54488 /* CardInputViewModelTests.swift */; };
+		39A1BFEE291D823B00A54488 /* PaymentServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFED291D823B00A54488 /* PaymentServiceMock.swift */; };
+		39A1BFF0291D82D500A54488 /* CardInputDataMapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFEF291D82D500A54488 /* CardInputDataMapperMock.swift */; };
+		39A1BFF2291D831800A54488 /* CardInputRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFF1291D831800A54488 /* CardInputRouterMock.swift */; };
+		39A1BFF5291D84DB00A54488 /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFF4291D84DB00A54488 /* Fakes.swift */; };
 		39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AB29140497004C5B4C /* CardInputAssembly.swift */; };
 		39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AD291404BD004C5B4C /* CardInputViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -77,7 +83,7 @@
 		399C29592912F5B40031EC73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		399C295B2912F5B40031EC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		399C29602912F5B50031EC73 /* CheckoutTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckoutTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		399C29642912F5B50031EC73 /* CheckoutTestProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTestProjectTests.swift; sourceTree = "<group>"; };
+		399C29642912F5B50031EC73 /* CardInputDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputDataMapperTests.swift; sourceTree = "<group>"; };
 		399C296A2912F5B50031EC73 /* CheckoutTestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckoutTestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		399C296E2912F5B50031EC73 /* CheckoutTestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTestProjectUITests.swift; sourceTree = "<group>"; };
 		399C29702912F5B50031EC73 /* CheckoutTestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -97,6 +103,12 @@
 		39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultAssembly.swift; sourceTree = "<group>"; };
 		39A1BFE4291D4CC900A54488 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		39A1BFE6291D523200A54488 /* CardInputDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputDataMapper.swift; sourceTree = "<group>"; };
+		39A1BFE8291D811100A54488 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		39A1BFEA291D81D100A54488 /* CardInputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModelTests.swift; sourceTree = "<group>"; };
+		39A1BFED291D823B00A54488 /* PaymentServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceMock.swift; sourceTree = "<group>"; };
+		39A1BFEF291D82D500A54488 /* CardInputDataMapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputDataMapperMock.swift; sourceTree = "<group>"; };
+		39A1BFF1291D831800A54488 /* CardInputRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputRouterMock.swift; sourceTree = "<group>"; };
+		39A1BFF4291D84DB00A54488 /* Fakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
 		39E075AB29140497004C5B4C /* CardInputAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputAssembly.swift; sourceTree = "<group>"; };
 		39E075AD291404BD004C5B4C /* CardInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,7 +224,10 @@
 		399C29632912F5B50031EC73 /* CheckoutTestProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				399C29642912F5B50031EC73 /* CheckoutTestProjectTests.swift */,
+				39A1BFF3291D84CF00A54488 /* Fakes */,
+				39A1BFEC291D81D500A54488 /* Mocks */,
+				399C29642912F5B50031EC73 /* CardInputDataMapperTests.swift */,
+				39A1BFEA291D81D100A54488 /* CardInputViewModelTests.swift */,
 			);
 			path = CheckoutTestProjectTests;
 			sourceTree = "<group>";
@@ -252,6 +267,7 @@
 			children = (
 				397AC22F29146301000BD051 /* UI */,
 				397AC22D291462DF000BD051 /* URLRequest+Extensions.swift */,
+				39A1BFE8291D811100A54488 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +373,24 @@
 				39A1BFE4291D4CC900A54488 /* TextField.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		39A1BFEC291D81D500A54488 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFED291D823B00A54488 /* PaymentServiceMock.swift */,
+				39A1BFEF291D82D500A54488 /* CardInputDataMapperMock.swift */,
+				39A1BFF1291D831800A54488 /* CardInputRouterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		39A1BFF3291D84CF00A54488 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFF4291D84DB00A54488 /* Fakes.swift */,
+			);
+			path = Fakes;
 			sourceTree = "<group>";
 		};
 		39E075A829140382004C5B4C /* View */ = {
@@ -526,6 +560,7 @@
 				39A1BFE0291D468E00A54488 /* PaymentResultViewModel.swift in Sources */,
 				399C2989291305F50031EC73 /* UIStackView+Extensions.swift in Sources */,
 				39A1BFDC291D45DA00A54488 /* PaymentResultViewController.swift in Sources */,
+				39A1BFE9291D811100A54488 /* String+Extensions.swift in Sources */,
 				399C29522912F5AB0031EC73 /* CardInputViewController.swift in Sources */,
 				39A1BFE2291D49C400A54488 /* PaymentResultAssembly.swift in Sources */,
 				397AC228291446C9000BD051 /* HTTPMethods.swift in Sources */,
@@ -552,7 +587,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				399C29652912F5B50031EC73 /* CheckoutTestProjectTests.swift in Sources */,
+				39A1BFEE291D823B00A54488 /* PaymentServiceMock.swift in Sources */,
+				39A1BFF2291D831800A54488 /* CardInputRouterMock.swift in Sources */,
+				39A1BFF5291D84DB00A54488 /* Fakes.swift in Sources */,
+				399C29652912F5B50031EC73 /* CardInputDataMapperTests.swift in Sources */,
+				39A1BFEB291D81D100A54488 /* CardInputViewModelTests.swift in Sources */,
+				39A1BFF0291D82D500A54488 /* CardInputDataMapperMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

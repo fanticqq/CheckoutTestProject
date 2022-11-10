@@ -13,6 +13,7 @@ enum CardInputDataMapperError: Error {
     case incorrectCardNumber
     case incorrectExpirationDate
     case incorrectExpirationMonth
+    case incorrectExpirationYear
     
     var localizedDescription: String {
         switch self {
@@ -26,6 +27,8 @@ enum CardInputDataMapperError: Error {
             return Strings.cardMappingErrorIncorrectExpirationDate
         case .incorrectExpirationMonth:
             return Strings.cardMappingErrorIncorrectExpirationMonth
+        case .incorrectExpirationYear:
+            return Strings.cardMappingErrorIncorrectExpirationYear
         }
     }
 }
@@ -36,6 +39,9 @@ protocol CardInputDataMapper {
 
 final class CardInputDataMapperImp: CardInputDataMapper {
     func map(cardNumber: String?, expirationDate: String?, cvv: String?) -> Result<Card, CardInputDataMapperError> {
+        guard !cardNumber.isNilOrEmpty, !expirationDate.isNilOrEmpty, !cvv.isNilOrEmpty else {
+            return .failure(.dataIsMissing)
+        }
         guard cardNumber?.count == 16 else {
             return .failure(.incorrectCardNumber)
         }
@@ -57,7 +63,7 @@ final class CardInputDataMapperImp: CardInputDataMapper {
             }
             
             guard String(year).count == 4 else {
-                return .failure(.incorrectExpirationDate)
+                return .failure(.incorrectExpirationYear)
             }
             
             guard (1...12).contains(month) else {

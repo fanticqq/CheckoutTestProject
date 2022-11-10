@@ -23,4 +23,5 @@ enum Strings {
     static let cardMappingErrorIncorrectCvv = "CVV is incorrect"
     static let cardMappingErrorIncorrectExpirationDate = "Expiration date is incorrect"
     static let cardMappingErrorIncorrectExpirationMonth = "Expiration month is incorrect"
+    static let cardMappingErrorIncorrectExpirationYear = "Expiration year is incorrect"
 }
