@@ -12,6 +12,9 @@ final class CardInputViewModel {
     @Published var cardNumber: String? = "4243754271700719"
     @Published var expirationDate: String? = "06/2030"
     @Published var cvv: String? = "100"
+    @Published var isProcessing: Bool = false
+    
+    let errors = PassthroughSubject<CardInputErrorMessage, Never>()
     
     private let service: PaymentService
     private let router: CardInputRouter
@@ -64,11 +67,13 @@ final class CardInputViewModel {
         }
 
         let card = Card(number: cardNumber, expirationMonth: month, expirationYear: year, cvv: cvv)
+        self.isProcessing = true
         self.service.obtainPaymentURL(by: card)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isProcessing = false
                 switch completion {
-                case .failure(let error):
-                    print("!!! error: \(error)")
+                case .failure:
+                    self?.errors.send(.serviceError)
                 case .finished:
                     break
                 }

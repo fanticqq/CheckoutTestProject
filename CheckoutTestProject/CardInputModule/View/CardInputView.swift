@@ -15,23 +15,46 @@ private enum Constants {
 }
 
 final class CardInputView: UIView {
-    let onPayButtonPressed = PassthroughSubject<Void, Never>() 
+    let onPayButtonPressed = PassthroughSubject<Void, Never>()
+    
+    var isProcessing: Bool = false {
+        willSet {
+            self.progressIndicator.isHidden = !newValue
+            self.payButton.isEnabled = !newValue
+            let title: NSAttributedString
+            if newValue {
+                self.progressIndicator.startAnimating()
+                title = NSAttributedString(string: "")
+            } else {
+                title = self.buttonAttributedTitle
+                self.progressIndicator.stopAnimating()
+            }
+            self.payButton.setAttributedTitle(title, for: .normal)
+        }
+    }
     
     private let stackView = UIStackView().forAutoLayout()
     private let cardDetailsContainerView = UIStackView().forAutoLayout()
     private let expirationDateContainerView = UIStackView().forAutoLayout()
     private let cvvContainerView = UIStackView().forAutoLayout()
     
-    lazy var cardNumberTextField = self.makeTextField()
+    private let buttonAttributedTitle = NSAttributedString(
+        string: Strings.pay,
+        attributes: [.font:  UIFont.preferredFont(forTextStyle: .callout)]
+    )
+    
+    private(set) lazy var cardNumberTextField = self.makeTextField()
     private lazy var cardNumberTitleLabel = self.makeLabel(with: Strings.cardNumber)
     
-    lazy var expirationDateTextField = self.makeTextField()
+    private(set) lazy var expirationDateTextField = self.makeTextField()
     private lazy var expirationDateTitleLabel = self.makeLabel(with: Strings.expirationDate)
     
-    lazy var cvvTextField = self.makeTextField()
+    private(set) lazy var cvvTextField = self.makeTextField()
     private lazy var cvvTitleLabel = self.makeLabel(with: Strings.cvv)
     
     private lazy var payButton = UIButton(type: .system)
+    
+    private lazy var progressIndicator = UIActivityIndicatorView(style: .medium).forAutoLayout()
     
     private var disposeBag = Set<AnyCancellable>()
     
@@ -58,11 +81,7 @@ private extension CardInputView {
     }
     
     func configureButton() {
-        let attributedTitle = NSAttributedString(
-            string: Strings.pay,
-            attributes: [.font:  UIFont.preferredFont(forTextStyle: .callout)]
-        )
-        self.payButton.setAttributedTitle(attributedTitle, for: .normal)
+        self.payButton.setAttributedTitle(self.buttonAttributedTitle, for: .normal)
         self.payButton.addTarget(self, action: #selector(self.payButtonPressed), for: .touchUpInside)
         self.payButton.layer.borderColor = UIColor.black.cgColor
         self.payButton.layer.borderWidth = 1
@@ -97,6 +116,8 @@ private extension CardInputView {
             self.cvvTitleLabel,
             self.cvvTextField
         ])
+        
+        self.payButton.addSubview(self.progressIndicator)
     }
 
     func configureLayout() {
@@ -111,6 +132,11 @@ private extension CardInputView {
             self.stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.sideOffset),
             self.stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.sideOffset),
             self.stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.progressIndicator.centerXAnchor.constraint(equalTo: self.payButton.centerXAnchor),
+            self.progressIndicator.centerYAnchor.constraint(equalTo: self.payButton.centerYAnchor)
         ])
     }
     

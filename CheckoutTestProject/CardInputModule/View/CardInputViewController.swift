@@ -46,7 +46,9 @@ private extension CardInputViewController {
         let viewModelSubscriptions = [
             self.viewModel.$cardNumber.assign(to: \.text, on: self.cardInputView.cardNumberTextField),
             self.viewModel.$expirationDate.assign(to: \.text, on: self.cardInputView.expirationDateTextField),
-            self.viewModel.$cvv.assign(to: \.text, on: self.cardInputView.cvvTextField)
+            self.viewModel.$cvv.assign(to: \.text, on: self.cardInputView.cvvTextField),
+            self.viewModel.$isProcessing.assign(to: \.isProcessing, on: self.cardInputView),
+            self.viewModel.errors.sink(receiveValue: { [weak self] error in self?.handle(error: error) })
         ]
         viewModelSubscriptions.forEach { $0.store(in: &self.disposeBag) }
         
@@ -68,6 +70,13 @@ private extension CardInputViewController {
         self.cardInputView.onPayButtonPressed
             .sink(receiveValue: { [weak self] in self?.viewModel.buy() })
             .store(in: &self.disposeBag)
+    }
+    
+    func handle(error: CardInputErrorMessage) {
+        let alert = UIAlertController(title: Strings.error, message: error.text, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: Strings.ok, style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
     }
 }
 

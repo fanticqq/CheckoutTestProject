@@ -13,4 +13,7 @@ enum Strings {
     static let cvv = "Cvv"
     static let pay = "PAY"
     static let done = "Done"
+    static let error = "Error"
+    static let serviceError = "Something went wrong. Please try again"
+    static let ok = "OK"
 }

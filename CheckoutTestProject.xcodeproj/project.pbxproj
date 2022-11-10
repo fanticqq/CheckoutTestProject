@@ -33,6 +33,7 @@
 		39A1BFCF291D264D00A54488 /* CardVerificationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFCE291D264D00A54488 /* CardVerificationAssembly.swift */; };
 		39A1BFD2291D269B00A54488 /* CardInputRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD1291D269B00A54488 /* CardInputRouter.swift */; };
 		39A1BFD5291D3DB300A54488 /* CardVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */; };
+		39A1BFD7291D3F8300A54488 /* CardInputErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD6291D3F8300A54488 /* CardInputErrorMessage.swift */; };
 		39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AB29140497004C5B4C /* CardInputAssembly.swift */; };
 		39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AD291404BD004C5B4C /* CardInputViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		39A1BFCE291D264D00A54488 /* CardVerificationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationAssembly.swift; sourceTree = "<group>"; };
 		39A1BFD1291D269B00A54488 /* CardInputRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputRouter.swift; sourceTree = "<group>"; };
 		39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationRouter.swift; sourceTree = "<group>"; };
+		39A1BFD6291D3F8300A54488 /* CardInputErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputErrorMessage.swift; sourceTree = "<group>"; };
 		39E075AB29140497004C5B4C /* CardInputAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputAssembly.swift; sourceTree = "<group>"; };
 		39E075AD291404BD004C5B4C /* CardInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				39E075AD291404BD004C5B4C /* CardInputViewModel.swift */,
+				39A1BFD6291D3F8300A54488 /* CardInputErrorMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				399C298B2913094B0031EC73 /* UITextField+Extensions.swift in Sources */,
 				39A1BFD2291D269B00A54488 /* CardInputRouter.swift in Sources */,
 				397AC2202914443B000BD051 /* Card.swift in Sources */,
+				39A1BFD7291D3F8300A54488 /* CardInputErrorMessage.swift in Sources */,
 				399C29502912F5AB0031EC73 /* SceneDelegate.swift in Sources */,
 				399C29802912FB3A0031EC73 /* CardInputView.swift in Sources */,
 				397AC22629144693000BD051 /* NetworkClient.swift in Sources */,
