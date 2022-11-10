@@ -95,10 +95,10 @@ final class CardInputViewModel {
 
 extension CardInputViewModel: CardVerificationViewModelOutput {
     func cardVerificationComplete() {
-        print("!!! cardVerificationComplete")
+        self.router.showPaymentResult(isPaymentSucceeded: true)
     }
     
     func cardVerificationFailed() {
-        print("!!! cardVerificationFailed")
+        self.router.showPaymentResult(isPaymentSucceeded: false)
     }
 }

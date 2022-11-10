@@ -9,6 +9,7 @@ import UIKit
 
 protocol CardInputRouter {
     func showVerification(with dependencies: CardVerificationDependencies)
+    func showPaymentResult(isPaymentSucceeded: Bool)
 }
 
 final class CardInputRouterImp: CardInputRouter {
@@ -16,6 +17,12 @@ final class CardInputRouterImp: CardInputRouter {
     
     func showVerification(with dependencies: CardVerificationDependencies) {
         let viewController = CardVerificationAssembly.makeModule(with: dependencies)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.presenter?.present(navigationController, animated: true)
+    }
+    
+    func showPaymentResult(isPaymentSucceeded: Bool) {
+        let viewController = PaymentResultAssembly.makeModule(isPaymentSucceeded: isPaymentSucceeded)
         let navigationController = UINavigationController(rootViewController: viewController)
         self.presenter?.present(navigationController, animated: true)
     }

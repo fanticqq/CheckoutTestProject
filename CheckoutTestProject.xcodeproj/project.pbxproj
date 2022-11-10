@@ -34,6 +34,9 @@
 		39A1BFD2291D269B00A54488 /* CardInputRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD1291D269B00A54488 /* CardInputRouter.swift */; };
 		39A1BFD5291D3DB300A54488 /* CardVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */; };
 		39A1BFD7291D3F8300A54488 /* CardInputErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFD6291D3F8300A54488 /* CardInputErrorMessage.swift */; };
+		39A1BFDC291D45DA00A54488 /* PaymentResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFDB291D45DA00A54488 /* PaymentResultViewController.swift */; };
+		39A1BFE0291D468E00A54488 /* PaymentResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFDF291D468E00A54488 /* PaymentResultViewModel.swift */; };
+		39A1BFE2291D49C400A54488 /* PaymentResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */; };
 		39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AB29140497004C5B4C /* CardInputAssembly.swift */; };
 		39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AD291404BD004C5B4C /* CardInputViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +90,9 @@
 		39A1BFD1291D269B00A54488 /* CardInputRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputRouter.swift; sourceTree = "<group>"; };
 		39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardVerificationRouter.swift; sourceTree = "<group>"; };
 		39A1BFD6291D3F8300A54488 /* CardInputErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputErrorMessage.swift; sourceTree = "<group>"; };
+		39A1BFDB291D45DA00A54488 /* PaymentResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewController.swift; sourceTree = "<group>"; };
+		39A1BFDF291D468E00A54488 /* PaymentResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewModel.swift; sourceTree = "<group>"; };
+		39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultAssembly.swift; sourceTree = "<group>"; };
 		39E075AB29140497004C5B4C /* CardInputAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputAssembly.swift; sourceTree = "<group>"; };
 		39E075AD291404BD004C5B4C /* CardInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,10 +193,9 @@
 		399C294C2912F5AB0031EC73 /* CheckoutTestProject */ = {
 			isa = PBXGroup;
 			children = (
-				39A1BFC6291D231700A54488 /* CardVerificationModule */,
+				39A1BFD8291D447F00A54488 /* Modules */,
 				397AC221291445CE000BD051 /* Domain */,
 				399C2985291302010031EC73 /* Extensions */,
-				399C297E2912FB080031EC73 /* CardInputModule */,
 				399C297D2912F9430031EC73 /* Resources */,
 				399C294D2912F5AB0031EC73 /* AppDelegate.swift */,
 				399C294F2912F5AB0031EC73 /* SceneDelegate.swift */,
@@ -295,6 +300,50 @@
 				39A1BFD4291D3DB300A54488 /* CardVerificationRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		39A1BFD8291D447F00A54488 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFD9291D448800A54488 /* PaymentResultModule */,
+				399C297E2912FB080031EC73 /* CardInputModule */,
+				39A1BFC6291D231700A54488 /* CardVerificationModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		39A1BFD9291D448800A54488 /* PaymentResultModule */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFDE291D460200A54488 /* Assembly */,
+				39A1BFDD291D45FE00A54488 /* Model */,
+				39A1BFDA291D44A300A54488 /* View */,
+			);
+			path = PaymentResultModule;
+			sourceTree = "<group>";
+		};
+		39A1BFDA291D44A300A54488 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFDB291D45DA00A54488 /* PaymentResultViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A1BFDD291D45FE00A54488 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFDF291D468E00A54488 /* PaymentResultViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39A1BFDE291D460200A54488 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		39E075A829140382004C5B4C /* View */ = {
@@ -459,8 +508,11 @@
 				39A1BFCC291D259F00A54488 /* CardVerificationViewModel.swift in Sources */,
 				397AC22E291462DF000BD051 /* URLRequest+Extensions.swift in Sources */,
 				397AC224291445F8000BD051 /* Endpoints.swift in Sources */,
+				39A1BFE0291D468E00A54488 /* PaymentResultViewModel.swift in Sources */,
 				399C2989291305F50031EC73 /* UIStackView+Extensions.swift in Sources */,
+				39A1BFDC291D45DA00A54488 /* PaymentResultViewController.swift in Sources */,
 				399C29522912F5AB0031EC73 /* CardInputViewController.swift in Sources */,
+				39A1BFE2291D49C400A54488 /* PaymentResultAssembly.swift in Sources */,
 				397AC228291446C9000BD051 /* HTTPMethods.swift in Sources */,
 				397AC22C291449A4000BD051 /* PaymentResult.swift in Sources */,
 				399C294E2912F5AB0031EC73 /* AppDelegate.swift in Sources */,
