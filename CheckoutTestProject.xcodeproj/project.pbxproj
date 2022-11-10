@@ -37,6 +37,7 @@
 		39A1BFDC291D45DA00A54488 /* PaymentResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFDB291D45DA00A54488 /* PaymentResultViewController.swift */; };
 		39A1BFE0291D468E00A54488 /* PaymentResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFDF291D468E00A54488 /* PaymentResultViewModel.swift */; };
 		39A1BFE2291D49C400A54488 /* PaymentResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */; };
+		39A1BFE5291D4CC900A54488 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A1BFE4291D4CC900A54488 /* TextField.swift */; };
 		39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AB29140497004C5B4C /* CardInputAssembly.swift */; };
 		39E075AE291404BD004C5B4C /* CardInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E075AD291404BD004C5B4C /* CardInputViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		39A1BFDB291D45DA00A54488 /* PaymentResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewController.swift; sourceTree = "<group>"; };
 		39A1BFDF291D468E00A54488 /* PaymentResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultViewModel.swift; sourceTree = "<group>"; };
 		39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentResultAssembly.swift; sourceTree = "<group>"; };
+		39A1BFE4291D4CC900A54488 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		39E075AB29140497004C5B4C /* CardInputAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputAssembly.swift; sourceTree = "<group>"; };
 		39E075AD291404BD004C5B4C /* CardInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInputViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 			children = (
 				39A1BFD8291D447F00A54488 /* Modules */,
 				397AC221291445CE000BD051 /* Domain */,
+				39A1BFE3291D4CB000A54488 /* UI */,
 				399C2985291302010031EC73 /* Extensions */,
 				399C297D2912F9430031EC73 /* Resources */,
 				399C294D2912F5AB0031EC73 /* AppDelegate.swift */,
@@ -344,6 +347,14 @@
 				39A1BFE1291D49C400A54488 /* PaymentResultAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		39A1BFE3291D4CB000A54488 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				39A1BFE4291D4CC900A54488 /* TextField.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		39E075A829140382004C5B4C /* View */ = {
@@ -505,6 +516,7 @@
 				399C2987291302160031EC73 /* UIView+Extensions.swift in Sources */,
 				397AC22A29144884000BD051 /* NetworkRequest.swift in Sources */,
 				39E075AC29140497004C5B4C /* CardInputAssembly.swift in Sources */,
+				39A1BFE5291D4CC900A54488 /* TextField.swift in Sources */,
 				39A1BFCC291D259F00A54488 /* CardVerificationViewModel.swift in Sources */,
 				397AC22E291462DF000BD051 /* URLRequest+Extensions.swift in Sources */,
 				397AC224291445F8000BD051 /* Endpoints.swift in Sources */,

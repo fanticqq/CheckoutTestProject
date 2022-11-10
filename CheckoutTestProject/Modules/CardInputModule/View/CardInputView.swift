@@ -141,7 +141,7 @@ private extension CardInputView {
     }
     
     func makeTextField() -> UITextField {
-        let textField = UITextField()
+        let textField = TextField()
         textField.keyboardType = .numberPad
         textField.addDoneButton()
         textField.font = .preferredFont(forTextStyle: .title1)
