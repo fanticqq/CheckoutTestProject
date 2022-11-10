@@ -43,17 +43,12 @@ final class NetworkClientImp: NetworkClient {
         urlRequest.httpMethod = request.method.rawValue
         urlRequest.timeoutInterval = 10
         urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        print("!!! urlRequest: \(urlRequest.cURL(pretty: true))")
         
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
             .mapError { $0 as Error }
             .eraseToAnyPublisher()
             .map(\.data)
-            .handleEvents(receiveOutput: { data in
-                let response = try? JSONSerialization.jsonObject(with: data)
-                print("Response: \(String(describing: response))")
-            })
             .decode(type: Response.self, decoder: self.decoder)
             .receive(on: self.receivingQueue)
             .eraseToAnyPublisher()
